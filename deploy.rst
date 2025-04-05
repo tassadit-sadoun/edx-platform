@@ -35,26 +35,26 @@ sudo certbot --nginx -d monopenedx.duckdns.org
 
 Ton fichier de configuration Nginx devrait ressembler à ceci ::
 
-server {
-    listen 80;
-    server_name monopenedx.duckdns.org;
+    server {
+        listen 80;
+        server_name monopenedx.duckdns.org;
 
-    location /studio {
-        proxy_pass http://127.0.0.1:8000;  # Port où Open edX tourne
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
+        location /studio {
+            proxy_pass http://127.0.0.1:8000;  # Port où Open edX tourne
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
 
-    location /admin {
-        proxy_pass http://127.0.0.1:8000;  # Port où Open edX tourne
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        location /admin {
+            proxy_pass http://127.0.0.1:8000;  # Port où Open edX tourne
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
     }
-}
 
 
 
