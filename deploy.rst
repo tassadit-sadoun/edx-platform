@@ -23,6 +23,7 @@ Crée-le avec ::
 sudo nano /etc/nginx/sites-available/openedx
 
 4. Installer un certificat SSL Let's Encrypt
+-------------------------------------------------------
 Sur ton instance EC2, exécute :
 sudo apt install certbot python3-certbot-nginx -y
 
@@ -65,4 +66,57 @@ Ton fichier de configuration Nginx devrait ressembler à ceci ::
 7. Redémarrer Nginx::
 -------------------------------
     sudo systemctl restart nginx
+
+Étapes pour déployer Open edX avec Kubernetes sur EC2
+============================================================
+
+1. Configuration de base de l’instance EC2
+    * Assure-toi d’avoir une instance EC2 avec :
+    * Ubuntu 20.04 ou 22.04
+    * au moins 2 CPU / 8 Go RAM (16 Go ou + recommandé pour Open edX)
+    * Ports ouverts : 80 (HTTP), 443 (HTTPS), 22 (SSH), 3000 (Grafana si tu veux), etc.
+
+2. Installer les dépendances de base::
+-------------------------------
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install -y python3-pip curl git tmux htop ufw
+
+3. Installer Docker et Docker Compose :: 
+-------------------------------
+    sudo apt install -y docker.io docker-compose
+    sudo systemctl enable docker
+    sudo usermod -aG docker $USER
+
+4. Installer Kubernetes en local avec K3s (option légère)::
+--------------------------------------------------------------
+
+Pour une instance EC2 autonome, le plus simple est d’utiliser K3s (Kubernetes allégé)::
+    curl -sfL https://get.k3s.io | sh -
+
+Vérifie que Kubernetes tourne ::
+    sudo k3s kubectl get nodes
+
+Alias utile ::
+    alias kubectl='sudo k3s kubectl'
+
+5. Installer Helm (gestionnaire de paquets Kubernetes) :: 
+--------------------------------------------------------------
+
+    curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+6. Installer Tutor ::
+--------------------------------------------------------------
+
+    pip install tutor-openedx
+
+7. Configurer Tutor pour Kubernetes
+--------------------------------------------------------------
+Dis à Tutor que tu veux utiliser Kubernetes et non Docker classique ::
+    tutor config save --set K8S_MODE=true
+
+Initialise la config ::
+    tutor config save
+
+
+
 
