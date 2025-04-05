@@ -117,6 +117,16 @@ Dis à Tutor que tu veux utiliser Kubernetes et non Docker classique ::
 Initialise la config ::
     tutor config save
 
+Ensuite, passe au déploiement Kubernetes :
+    tutor k8s quickstart
+
+Cela :
+Génère les fichiers Kubernetes (ingress, services, pods)
+Crée des volumes persistants
+Configure automatiquement les apps
+Te demande le superadmin, domaine, email, etc.
+
+
 
 
 
