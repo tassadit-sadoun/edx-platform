@@ -268,11 +268,4 @@
     2025-04-10 10:53:35.724+0000 [id=34]    INFO    jenkins.InitReactorRunner$1#onAttained: Started initialization
     2025-04-10 10:53:35.732+0000 [id=43]    INFO    jenkins.InitReactorRunner$1#onAttained: Listed all plugins
     2025-04-10 10:53:36.351+0000 [id=38]    INFO    jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
-    2025-04-10 10:53:36.355+0000 [id=38]    INFO    jenkins.InitReactorRunner$1#onAttained: Started all plugins
-    2025-04-10 10:53:36.355+0000 [id=39]    INFO    jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
-    2025-04-10 10:53:36.502+0000 [id=42]    INFO    jenkins.InitReactorRunner$1#onAttained: System config loaded
-    2025-04-10 10:53:36.503+0000 [id=42]    INFO    jenkins.InitReactorRunner$1#onAttained: System config adapted
-    2025-04-10 10:53:36.503+0000 [id=37]    INFO    jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
-    2025-04-10 10:53:36.505+0000 [id=46]    INFO    jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
-    2025-04-10 10:53:36.544+0000 [id=60]    INFO    hudson.util.Retrier#start: Attempt #1 to do the action check updates server
-    2025-04-10 10:53:36.841+0000 [id=34]    INFO    jenkins.install.SetupWizard#init
+    
