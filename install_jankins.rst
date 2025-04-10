@@ -268,4 +268,10 @@
     2025-04-10 10:53:35.724+0000 [id=34]    INFO    jenkins.InitReactorRunner$1#onAttained: Started initialization
     2025-04-10 10:53:35.732+0000 [id=43]    INFO    jenkins.InitReactorRunner$1#onAttained: Listed all plugins
     2025-04-10 10:53:36.351+0000 [id=38]    INFO    jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+
+
+
+Start Jankins: 
+    ssh -R 80:localhost:8082 serveo.net
+    sudo java -jar /usr/share/jenkins/jenkins.war --httpPort=8082
     
